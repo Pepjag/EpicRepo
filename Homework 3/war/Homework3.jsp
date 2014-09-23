@@ -88,6 +88,9 @@
 	<p>
 		Click <a href="allposts.jsp">HERE</a> to see all posts on the blog!
 	</p>
+	<div class="fixed">
+	test
+	</div>
 	<%
  	 }
     %>

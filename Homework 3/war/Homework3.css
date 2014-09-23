@@ -1,5 +1,8 @@
 /** Add css rules here for your application. */
 
+body {
+	background-color: #888888;
+}
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
@@ -43,7 +46,6 @@ h2 {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 200px;
     background-color: white;
     z-index: 9999;
 }
@@ -51,20 +53,22 @@ h2 {
 
 .relative {
     position: relative;
-    width: 800px;
+    width: 600px;
     background-color: white;
     border-radius: 10px;
+    padding:1em 2em;
 }
   
 .elem-green {
-  border: solid #ededed 3px;
+  border: solid #408080 5px;
 }
 
 
 #logo {
   text-align: center;
   background-color: #ededed;
-  padding: 1em 0;
+  padding: 1em 1em;
+  border-radius: 10px;
 }
 
 #logo a {
@@ -94,8 +98,8 @@ h2 {
 
 .label, .endlabel {
   position: absolute;
-  background-color: #ededed;
-  color: #414142;
+  background-color: #408080;
+  color: #a9d3d3;
   line-height: 1em;
 }
 
@@ -121,5 +125,7 @@ h2 {
   bottom: 0;
   padding: 3px 30px 3px 30px;
   border-top-left-radius: 10px;
-  color: #AAAAAA;
+  border-bottom-right-radius: 10px;
+  color: #c0c0c0;
+  background-color: #FFFFFF;
 }
