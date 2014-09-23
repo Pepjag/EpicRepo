@@ -20,7 +20,12 @@
    </head>
  
   <body>
-  <center>
+	<center>
+    <div id="logo">
+      <h1><a href="/">
+        <span>Boblahblog</span>
+      </a></h1>
+    </div>
 <%
     String blogName = request.getParameter("blogName");
     if (blogName == null) {
@@ -69,6 +74,9 @@ to post on our blog.</p>
         }
     }
     %>
+   	<div class="fixed">
+	<input type="submit" value="Subscribe!"/>
+	</div>
     </center>
     </body>
     </html>

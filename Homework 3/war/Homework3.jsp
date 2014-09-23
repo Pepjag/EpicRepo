@@ -22,9 +22,9 @@
 <body>
 	<center>
     <div id="logo">
-      <a href="/">
-        <span>Our Blog</span>
-      </a>
+      <h1><a href="/">
+        <span>Boblahblog</span>
+      </a></h1>
     </div>
     
 	<%
@@ -86,11 +86,8 @@
 		Click <a href="post.jsp">HERE</a> to post on our blog!
 	</p>
 	<p>
-		Click <a href="allposts.jsp">HERE</a> to see all posts on the blog!
+		Click [ <a href="allposts.jsp">See all posts</a> ] to see all posts on the blog!
 	</p>
-	<div class="fixed">
-	test
-	</div>
 	<%
  	 }
     %>

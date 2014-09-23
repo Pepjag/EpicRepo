@@ -6,10 +6,9 @@ body {
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
-  font-size: 2em;
+  font-size: 30pt;
   font-weight: bold;
-  color: #777777;
-  margin: 40px 0px 70px;
+  color: #408080;
   text-align: center;
 }
 
@@ -65,10 +64,11 @@ h2 {
 
 
 #logo {
+  /** width: 700px;
   text-align: center;
   background-color: #ededed;
-  padding: 1em 1em;
-  border-radius: 10px;
+  padding: 30px 30px;
+  border-radius: 10px;  */
 }
 
 #logo a {
