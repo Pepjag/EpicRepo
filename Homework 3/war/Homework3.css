@@ -10,6 +10,12 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+}
+
 .sendButton {
   display: block;
   font-size: 16pt;
@@ -31,4 +37,89 @@ h1 {
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    background-color: white;
+    z-index: 9999;
+}
+
+
+.relative {
+    position: relative;
+    width: 800px;
+    background-color: white;
+    border-radius: 10px;
+}
+  
+.elem-green {
+  border: solid #ededed 3px;
+}
+
+
+#logo {
+  text-align: center;
+  background-color: #ededed;
+  padding: 1em 0;
+}
+
+#logo a {
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+}
+
+#logo a:active {
+  background: none;
+}
+
+#logo img {
+  vertical-align: middle;
+}
+
+#logo span {
+  vertical-align: middle;
+  font-size: 2em;
+  font-family: 'Bree Serif', serif;
+  margin-left: .2em;
+}
+
+.elem-inline .label, .elem-inline .endlabel {
+  position: static;
+}
+
+.label, .endlabel {
+  position: absolute;
+  background-color: #ededed;
+  color: #414142;
+  line-height: 1em;
+}
+
+.elem-red {
+  border: solid #D64078 3px;
+}
+.elem-red > .label, .elem-red > .endlabel{
+  color: white;
+  background-color: #D64078;
+}
+
+.label {
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  padding: 5px 30px 5px 30px;
+  border-bottom-right-radius: 10px;
+  font-size: 15pt;
+}
+
+.endlabel {
+  right: 0;
+  bottom: 0;
+  padding: 3px 30px 3px 30px;
+  border-top-left-radius: 10px;
+  color: #AAAAAA;
 }
