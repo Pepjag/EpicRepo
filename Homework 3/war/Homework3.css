@@ -1,13 +1,21 @@
 /** Add css rules here for your application. */
 
+body {
+	background-color: #888888;
+}
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
+  font-size: 30pt;
+  font-weight: bold;
+  color: #408080;
+  text-align: center;
+}
+
+h2 {
   font-size: 2em;
   font-weight: bold;
   color: #777777;
-  margin: 40px 0px 70px;
-  text-align: center;
 }
 
 .sendButton {
@@ -31,4 +39,93 @@ h1 {
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    z-index: 9999;
+}
+
+
+.relative {
+    position: relative;
+    width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    padding:1em 2em;
+}
+  
+.elem-green {
+  border: solid #408080 5px;
+}
+
+
+#logo {
+  /** width: 700px;
+  text-align: center;
+  background-color: #ededed;
+  padding: 30px 30px;
+  border-radius: 10px;  */
+}
+
+#logo a {
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+}
+
+#logo a:active {
+  background: none;
+}
+
+#logo img {
+  vertical-align: middle;
+}
+
+#logo span {
+  vertical-align: middle;
+  font-size: 2em;
+  font-family: 'Bree Serif', serif;
+  margin-left: .2em;
+}
+
+.elem-inline .label, .elem-inline .endlabel {
+  position: static;
+}
+
+.label, .endlabel {
+  position: absolute;
+  background-color: #408080;
+  color: #a9d3d3;
+  line-height: 1em;
+}
+
+.elem-red {
+  border: solid #D64078 3px;
+}
+.elem-red > .label, .elem-red > .endlabel{
+  color: white;
+  background-color: #D64078;
+}
+
+.label {
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  padding: 5px 30px 5px 30px;
+  border-bottom-right-radius: 10px;
+  font-size: 15pt;
+}
+
+.endlabel {
+  right: 0;
+  bottom: 0;
+  padding: 3px 30px 3px 30px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #c0c0c0;
+  background-color: #FFFFFF;
 }

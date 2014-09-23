@@ -11,6 +11,7 @@
 <%@ page import="com.google.appengine.api.datastore.Key" %>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ page import="blog.entity.BlogPost" %>
+<%@ page import="blog.util.Utils" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
 <html>
@@ -19,7 +20,12 @@
    </head>
  
   <body>
- 
+	<center>
+    <div id="logo">
+      <h1><a href="/">
+        <span>Boblahblog</span>
+      </a></h1>
+    </div>
 <%
     String blogName = request.getParameter("blogName");
     if (blogName == null) {
@@ -57,22 +63,20 @@ to post on our blog.</p>
         <%
     } else {
         for (Entity greeting : greetings) {
-        	pageContext.setAttribute("greeting_title",
-        							greeting.getProperty("title"));
-            pageContext.setAttribute("greeting_content",
-                                    greeting.getProperty("content"));
-            pageContext.setAttribute("greeting_user",
-                                    greeting.getProperty("user"));
-                %>
-                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
-                <%
-            %>
-            <blockquote><b>${fn:escapeXml(greeting_title)}</b></blockquote>
-            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
-            <%
+
+            pageContext.setAttribute("page_content",
+            		Utils.printFormattedPost(greeting));
+     %>
+   	<p>
+		<center>${page_content}</center>
+	</p>
+	<%
         }
     }
     %>
-    
+   	<div class="fixed">
+	<input type="submit" value="Subscribe!"/>
+	</div>
+    </center>
     </body>
     </html>
