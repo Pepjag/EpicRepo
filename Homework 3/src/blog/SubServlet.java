@@ -22,8 +22,11 @@ public class SubServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
                 throws IOException {
 
-        //String blogName = req.getParameter("blogName");
-        Key blogKey = KeyFactory.createKey("Blog", "default");
+        String blogName = req.getParameter("blogName");
+        if (blogName == null){
+        	blogName = "default";
+        }
+        Key blogKey = KeyFactory.createKey("Blog", blogName);
         
     	String btnVal=req.getParameter("b1");
     	String input=req.getParameter("email");
@@ -32,6 +35,7 @@ public class SubServlet extends HttpServlet {
         
     	if("Subscribe!".equals(btnVal)){
             Entity email = new Entity("email", input);
+            System.out.println("Subscribe:" + input + "<end>");
             email.setProperty("email", input);     
             datastore.put(email);   		
     	}
@@ -39,7 +43,9 @@ public class SubServlet extends HttpServlet {
     		// Use class Query to assemble a query
     		Query query = new Query("email", blogKey);
     		List<Entity> emails = datastore.prepare(query).asList(FetchOptions.Builder.withDefaults());
+    		
 			System.out.print(emails.size());
+			
     		for (Entity email : emails){
     			System.out.print(email.toString());
     			if (email.getProperty("email").equals(input)) {
