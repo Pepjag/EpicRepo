@@ -4,6 +4,10 @@ body {
 	background-color: #888888;
 }
 
+p {
+	text-align:center;
+}
+
 /** Example rules used by the template application (remove for your app) */
 h1 {
   font-size: 30pt;

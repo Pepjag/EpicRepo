@@ -20,7 +20,6 @@
    </head>
  
   <body>
-	<center>
     <div id="logo">
       <h1><a href="/">
         <span>Boblahblog</span>
@@ -37,18 +36,21 @@
     if (user != null) {
       pageContext.setAttribute("user", user);
     
-%>
-<p>Hello, ${fn:escapeXml(user.nickname)}! Feel free to post on our blog! (You can
-<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-<%
-    } else {
-%>
-<p>Hello!
-<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-to post on our blog.</p>
-<%
-    }
-%>
+	%><center>
+	<p>Hello, ${fn:escapeXml(user.nickname)}! Feel free to post on our blog!<br>	
+	<a href="post.jsp">[Create new post]</a>
+	<a href="Homework3.jsp">[See top 5 posts]</a>
+	<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">[Sign out]</a>
+	</center><%
+	    } else {
+	%><center>
+	<p>Hello!
+	<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+	to post on our blog.<br>
+	<a href="Homework3.jsp">[See top 5 posts]</a></p>
+	</center><%
+	    }
+	%>
  
 <%
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();

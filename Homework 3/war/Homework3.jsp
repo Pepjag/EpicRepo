@@ -26,6 +26,7 @@
         <span>Boblahblog</span>
       </a></h1>
     </div>
+    </center>
     
 	<%
     String blogName = request.getParameter("blogName");
@@ -38,25 +39,24 @@
     if (user != null) {
       pageContext.setAttribute("user", user);
 	%>
-	<p>
-		Hello, ${fn:escapeXml(user.nickname)}! Feel free to post on our blog!
-		(You can <a
-			href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign
-			out</a>.)
-	</p>
+	<center><p>
+		Hello, ${fn:escapeXml(user.nickname)}! Feel free to post on our blog! <br>
+		<a href="post.jsp">[Create new post]</a>
+		<a href="allposts.jsp">[See all posts]</a>
+	    <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">[Sign out]</a>
+	</p></center>
 	<%
     } else {
 	%>
-	<p>
+	<center><p>
 		Hello! <a
 			href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign
-			in</a> to post on our blog.
-	</p>
+			in</a> to post on our blog. <br>
+			<a href="allposts.jsp">[See all posts]</a>
+	</p></center>
 	<%
 	    }
-	%>
 
-	<%
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Key blogKey = KeyFactory.createKey("Blog", blogName);
     // Run an ancestor query to ensure we see the most up-to-date
@@ -80,17 +80,7 @@
         }
     }
 
- 	if (user != null){
- 	%>
-	<p>
-		Click <a href="post.jsp">HERE</a> to post on our blog!
-	</p>
-	<p>
-		Click [ <a href="allposts.jsp">See all posts</a> ] to see all posts on the blog!
-	</p>
-	<%
- 	 }
+
     %>
-	</center>
 </body>
 </html>

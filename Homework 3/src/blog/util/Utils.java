@@ -8,13 +8,15 @@ public class Utils {
 		String userString = post.getProperty("user").toString();
 		userString = userString.split("@")[0];
 		
-		outputString +="<div class=\"relative elem-green\">";
-		outputString +="  <span class=\"label\">" + post.getProperty("title") + "</span>";
-		outputString +="  <p><br>";
-		outputString +="    " + post.getProperty("content") + "<br><br> - " + userString;
-		outputString +="  <br></p>";
-		outputString +="  <span class=\"endlabel\">" + post.getProperty("date") + "</span>";
-		outputString +="</div>";
+		outputString +="<center>\n";
+		outputString +="<div class=\"relative elem-green\">\n";
+		outputString +="  <span class=\"label\">" + post.getProperty("title") + "</span>\n";
+		outputString +="  <p><br>\n";
+		outputString +="    " + post.getProperty("content") + "<br><br> - " + userString + "\n";
+		outputString +="  <br></p>\n";
+		outputString +="  <span class=\"endlabel\">" + post.getProperty("date") + "</span>\n";
+		outputString +="</div>\n";
+		outputString +="</center>\n";
 				
 		return outputString;
 	}

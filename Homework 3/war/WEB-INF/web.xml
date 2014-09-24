@@ -16,9 +16,30 @@
     <url-pattern>/post</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>subscribe</servlet-name>
+    <servlet-class>blog.SubServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>subscribe</servlet-name>
+    <url-pattern>/subscribe</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+	<servlet-name>ScheduledSenderServlet</servlet-name>
+	<servlet-class>blog.client.ScheduledSenderServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+	<servlet-name>ScheduledSenderServlet</servlet-name>
+	<url-pattern>/cron/mycronjob</url-pattern>
+  </servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Homework3.jsp</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list>	
 
 </web-app>
