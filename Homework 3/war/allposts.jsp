@@ -20,11 +20,15 @@
    </head>
  
   <body>
+	<center>
     <div id="logo">
-      <h1><a href="/">
-        <span>Boblahblog</span>
-      </a></h1>
+      <h1>
+      <img src="images/wow_left.png" alt="WOW!"> 
+      <a href="/"><span>Boblahblog</span></a>
+      <img src="images/wow_right.png" alt="WOW!">
+      </h1>
     </div>
+    </center>
 <%
     String blogName = request.getParameter("blogName");
     if (blogName == null) {
@@ -40,6 +44,7 @@
 	<p>Hello, ${fn:escapeXml(user.nickname)}! Feel free to post on our blog!<br>	
 	<a href="post.jsp">[Create new post]</a>
 	<a href="Homework3.jsp">[See top 5 posts]</a>
+	<a href="subscribe.jsp">[Subscribe]</a>
 	<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">[Sign out]</a>
 	</center><%
 	    } else {
@@ -47,7 +52,8 @@
 	<p>Hello!
 	<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 	to post on our blog.<br>
-	<a href="Homework3.jsp">[See top 5 posts]</a></p>
+	<a href="Homework3.jsp">[See top 5 posts]</a>
+	<a href="subscribe.jsp">[Subscribe]</a></p>
 	</center><%
 	    }
 	%>

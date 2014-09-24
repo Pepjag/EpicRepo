@@ -33,19 +33,18 @@
     }
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       Key blogKey = KeyFactory.createKey("Blog", blogName);
-%>
+   %>
   
   
-  
-    <form action="/post" method="post">
-    <p>Blog Title:</p>
-      <div><textarea name="title" rows="1" cols="60"></textarea></div>
-      <p>Blog Content:</p>
-      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+    <form style="text-align:center" action="/post" method="post">
+    <p>Post Title:</p>
+      <div><textarea name="title" rows="1" cols="60" style="width: 300px; height: 30px;"></textarea></div>
+      <p>Post Content:</p>
+      <div><textarea name="content" rows="3" cols="60" style="width: 300px; height: 300px;"></textarea></div>
       <div><input type="submit" value="Post" /></div>
       <input type="hidden" name="blogName" value="${fn:escapeXml(blogName)}"/>
     </form>
-    <form action="Homework3.jsp" method="link">
+    <form style="text-align:center" action="Homework3.jsp" method="link">
 		<input type="submit" value="Cancel">
 	</form>
  

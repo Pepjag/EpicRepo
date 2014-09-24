@@ -6,7 +6,11 @@ public class Utils {
 	public static String printFormattedPost(Entity post){
 		String outputString = new String();
 		String userString = post.getProperty("user").toString();
-		userString = userString.split("@")[0];
+		if (userString != null) {
+			userString = userString.split("@")[0];
+		} else {
+			userString = "NULL USER";
+		}
 		
 		outputString +="<center>\n";
 		outputString +="<div class=\"relative elem-green\">\n";

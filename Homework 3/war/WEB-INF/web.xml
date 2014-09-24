@@ -29,7 +29,7 @@
   
   <servlet>
 	<servlet-name>ScheduledSenderServlet</servlet-name>
-	<servlet-class>blog.client.ScheduledSenderServlet</servlet-class>
+	<servlet-class>blog.ScheduledSenderServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
