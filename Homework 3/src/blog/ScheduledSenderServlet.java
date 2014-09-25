@@ -24,14 +24,12 @@ import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
 
-
 @SuppressWarnings("serial")
 public class ScheduledSenderServlet extends HttpServlet {
 	private static final Logger _logger = Logger.getLogger(ScheduledSenderServlet.class.getName());
 
 	@SuppressWarnings("deprecation")
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 		try {
 			_logger.info("Cron Job has been executed");
@@ -42,45 +40,51 @@ public class ScheduledSenderServlet extends HttpServlet {
 			// BEGIN
 
 			Date yesterdayMorning = new Date();
-			yesterdayMorning.setTime(yesterdayMorning.getTime() - 86400000);  // milliseconds in a day
-			
+			yesterdayMorning.setTime(yesterdayMorning.getTime() - 86400000); // milliseconds
+																				// in
+																				// a
+																				// day
+
 			// build list of emails
-    		Query emailQuery = new Query("Email Address").addSort("address", Query.SortDirection.DESCENDING);
-    		List<Entity> emails = datastore.prepare(emailQuery).asList(FetchOptions.Builder.withDefaults());
-    		
-    		// build list of new posts
-    		Filter dateMinFilter = new FilterPredicate("date", FilterOperator.GREATER_THAN_OR_EQUAL, yesterdayMorning);
-    		Query postQuery = new Query("Greeting").setFilter(dateMinFilter);
-    		List<Entity> posts = datastore.prepare(postQuery).asList(FetchOptions.Builder.withDefaults());
-    		
-    		String postString = new String();
-			for (Entity post : posts){
-				postString += post.getProperty("user").toString() + " posted \"" + post.getProperty("title") + "\" on " + post.getProperty("date") + " : \n\n";
-				postString += post.getProperty("content") + "\n\n\n";
-			} 		
-    		
-    		for (Entity email : emails){
-    			String mailString = new String();
-    			
-    			mailString += "Hello, " + email.getProperty("address").toString() + "!\n\n";
-    			
-    			if (posts.size() > 0) {
-    				mailString += "Here are the latest " + posts.size() + " posts :\n\n";
-    			} else {
-    				mailString = " We have no new posts :(\n";
-    			}
-    			
-    			mailString += postString;
-    			
-    			_logger.info("Attempting to send an email to " + email.getProperty("address").toString());
-    			
-    			MimeMessage outMessage = new MimeMessage(session);
-    			outMessage.setFrom(new InternetAddress("posts@sj-ee461l-testblog.appspotmail.com"));
-    			outMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(email.getProperty("address").toString()));
-    			outMessage.setSubject("The latest Bobblahblog posts just for you!\n\n");
-    			outMessage.setText(mailString);
-    			Transport.send(outMessage);   			
-    		}
+			Query emailQuery = new Query("Email Address").addSort("address", Query.SortDirection.DESCENDING);
+			List<Entity> emails = datastore.prepare(emailQuery).asList(FetchOptions.Builder.withDefaults());
+
+			// build list of new posts
+			Filter dateMinFilter = new FilterPredicate("date", FilterOperator.GREATER_THAN_OR_EQUAL, yesterdayMorning);
+			Query postQuery = new Query("Greeting").setFilter(dateMinFilter);
+			List<Entity> posts = datastore.prepare(postQuery).asList(FetchOptions.Builder.withDefaults());
+
+			if (!posts.isEmpty()) {
+				String postString = new String();
+				for (Entity post : posts) {
+					postString += post.getProperty("user").toString() + " posted \"" + post.getProperty("title") + "\" on "
+							+ post.getProperty("date") + " : \n\n";
+					postString += post.getProperty("content") + "\n\n\n";
+				}
+
+				for (Entity email : emails) {
+					String mailString = new String();
+
+					mailString += "Hello, " + email.getProperty("address").toString() + "!\n\n";
+
+					if (posts.size() > 0) {
+						mailString += "Here are the latest " + posts.size() + " posts :\n\n";
+					} else {
+						mailString = " We have no new posts :(\n";
+					}
+
+					mailString += postString;
+
+					_logger.info("Attempting to send an email to " + email.getProperty("address").toString());
+
+					MimeMessage outMessage = new MimeMessage(session);
+					outMessage.setFrom(new InternetAddress("posts@sj-ee461l-testblog.appspotmail.com"));
+					outMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(email.getProperty("address").toString()));
+					outMessage.setSubject("The latest Bobblahblog posts just for you!\n\n");
+					outMessage.setText(mailString);
+					Transport.send(outMessage);
+				}
+			}
 		} catch (Exception ex) {
 			// Log any exceptions in your Cron Job
 			_logger.info("ERROR: Could not send out Email Results response : " + ex.getMessage());
@@ -88,8 +92,7 @@ public class ScheduledSenderServlet extends HttpServlet {
 	}
 
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
 	}
 }

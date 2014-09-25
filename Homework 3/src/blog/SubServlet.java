@@ -49,7 +49,7 @@ public class SubServlet extends HttpServlet {
 				outMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(email.getProperty("address").toString()));
 				outMessage.addRecipients(MimeMessage.RecipientType.BCC, "steven.prickett+bobblahblogsubserv@gmail.com");
 				outMessage.setSubject("Congratulations on subscribing to BOBBLAHBLOG!");
-				outMessage.setText("You rock!\n\nLove,\nSteven and Jose\n");
+				outMessage.setText("You rock! See you at 5!\n\nLove,\nSteven and Jose\n");
 				Transport.send(outMessage);
             } catch (Exception ex) {
             	System.out.println("ERROR! Couldn't send congrats email! Exception: " + ex.getMessage());
