@@ -16,6 +16,7 @@
 
 <html>
 <head>
+<title>HI!</title>
 <link type="text/css" rel="stylesheet" href="Homework3.css" />
 </head>
 

@@ -16,6 +16,7 @@
  
 <html>
    <head>
+   <title>HI!</title>
    <link type="text/css" rel="stylesheet" href="Homework3.css" />
    </head>
  
@@ -82,9 +83,6 @@
         }
     }
     %>
-   	<div class="fixed">
-	<input type="submit" value="Subscribe!"/>
-	</div>
     </center>
     </body>
     </html>

@@ -28,16 +28,23 @@ public class BlogServlet extends HttpServlet {
         // This lets us run a transactional ancestor query to retrieve all
         // Greetings for a given Blog.  However, the write rate to each
         // Blog should be limited to ~1/second.
+        
         String blogName = req.getParameter("blogName");
         Key blogKey = KeyFactory.createKey("Blog", blogName);
         String title = req.getParameter("title");
+        if (title.isEmpty()){
+        	title = "(null title)";
+        }
         String content = req.getParameter("content");
+        if (content.isEmpty()){
+        	content = "(null post)";
+        }
         Date date = new Date();
         Entity greeting = new Entity("Greeting", blogKey);
         greeting.setProperty("user", user);
         greeting.setProperty("date", date);
         greeting.setProperty("title", title);
-        greeting.setProperty("content", content);
+        greeting.setProperty("content", new Text(content));
  
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(greeting);

@@ -15,6 +15,7 @@
  
 <html>
    <head>
+   <title>HI!</title>
    <link type="text/css" rel="stylesheet" href="Homework3.css" />
    </head>
  
@@ -40,7 +41,7 @@
     <p>Post Title:</p>
       <div><textarea name="title" rows="1" cols="60" style="width: 300px; height: 30px;"></textarea></div>
       <p>Post Content:</p>
-      <div><textarea name="content" rows="3" cols="60" style="width: 300px; height: 300px;"></textarea></div>
+      <div><textarea name="content" rows="5" cols="60" style="width: 300px; height: 300px;"></textarea></div>
       <div><input type="submit" value="Post" /></div>
       <input type="hidden" name="blogName" value="${fn:escapeXml(blogName)}"/>
     </form>
