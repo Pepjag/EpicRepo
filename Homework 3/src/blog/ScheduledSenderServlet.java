@@ -20,9 +20,11 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
+
 
 @SuppressWarnings("serial")
 public class ScheduledSenderServlet extends HttpServlet {
@@ -59,7 +61,8 @@ public class ScheduledSenderServlet extends HttpServlet {
 				for (Entity post : posts) {
 					postString += post.getProperty("user").toString() + " posted \"" + post.getProperty("title") + "\" on "
 							+ post.getProperty("date") + " : \n\n";
-					postString += post.getProperty("content") + "\n\n\n";
+					postString += ((Text)(post.getProperty("content"))).getValue() + "\n\n\n";
+					postString = postString.replaceAll("\\<.*?>","");
 				}
 
 				for (Entity email : emails) {
@@ -68,7 +71,7 @@ public class ScheduledSenderServlet extends HttpServlet {
 					mailString += "Hello, " + email.getProperty("address").toString() + "!\n\n";
 
 					if (posts.size() > 0) {
-						mailString += "Here are the latest " + posts.size() + " posts :\n\n";
+						mailString += "Here are the latest " + posts.size() + " Boblahblog posts :\n\n";
 					} else {
 						mailString = " We have no new posts :(\n";
 					}
@@ -80,7 +83,7 @@ public class ScheduledSenderServlet extends HttpServlet {
 					MimeMessage outMessage = new MimeMessage(session);
 					outMessage.setFrom(new InternetAddress("posts@sj-ee461l-testblog.appspotmail.com"));
 					outMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(email.getProperty("address").toString()));
-					outMessage.setSubject("The latest Bobblahblog posts just for you!\n\n");
+					outMessage.setSubject("The latest Boblahblog posts just for you!\n\n");
 					outMessage.setText(mailString);
 					Transport.send(outMessage);
 				}

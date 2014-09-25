@@ -17,7 +17,7 @@ public class Utils {
 		outputString +="<div class=\"relative elem-green\">\n";
 		outputString +="  <span class=\"label\">" + post.getProperty("title") + "</span>\n";
 		outputString +="  <p><br>\n";
-		outputString +="    " + ((Text)post.getProperty("content")).getValue() + "<br><br> - " + userString + "\n";
+		outputString +="    " + ((Text)(post.getProperty("content"))).getValue() + "<br><br> - " + userString + "\n";
 		outputString +="  <br></p>\n";
 		outputString +="  <span class=\"endlabel\">" + post.getProperty("date") + "</span>\n";
 		outputString +="</div>\n";
