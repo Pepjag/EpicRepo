@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:21
+-keep class android.sjgeocoder.MainActivity { <init>(...); }
+
+# view res/layout/activity_main.xml #generated:28
+-keep class com.google.android.gms.maps.MapFragment { <init>(...); }
+
