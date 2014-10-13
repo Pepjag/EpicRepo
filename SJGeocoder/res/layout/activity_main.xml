@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="android.sjgeocoder.MainActivity" >
+    tools:context=".MainActivity" >
 
     <EditText
         android:id="@+id/editText1"
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
+        android:layout_toLeftOf="@+id/button1"
         android:layout_alignParentLeft="true"
         android:ems="10" />
 
@@ -33,5 +34,16 @@
         android:layout_alignLeft="@+id/editText1"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/button1" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/map"
+        android:layout_alignLeft="@+id/map"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="15dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
