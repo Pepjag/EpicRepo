@@ -61,7 +61,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
 		
 		// the last known location of this provider
 		userLocation = locationManager
-				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+				.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
 		// set up criteria to find a better location services provider than passive
 		criteria = new Criteria();
